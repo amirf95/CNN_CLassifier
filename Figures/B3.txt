@@ -1,0 +1,14 @@
+Confusion Matrix:
+ [[337  22]
+ [ 12 347]]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+   non_culex       0.97      0.94      0.95       359
+       culex       0.94      0.97      0.95       359
+
+    accuracy                           0.95       718
+   macro avg       0.95      0.95      0.95       718
+weighted avg       0.95      0.95      0.95       718

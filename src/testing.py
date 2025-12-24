@@ -5,8 +5,9 @@ from tensorflow.keras.preprocessing import image
 import os
 
 # ===== CONFIG =====
-MODEL_PATH = r"C:\Users\amirf\OneDrive\Desktop\Culex_Mosquito_Classifier\models\culex_binary_RGB.keras"
-IMAGE_SIZE = (224, 224)
+MODEL_PATH = r"C:\Users\amirf\OneDrive\Desktop\Culex_Mosquito_Classifier\models\culex_binary_RGB_V3.keras"
+#IMAGE_SIZE = (224, 224)
+IMAGE_SIZE = (300, 300)  # for B3
 THRESHOLD = 0.7   # decision boundary
 
 UNCERTAIN_LOW = 0.35
@@ -35,7 +36,7 @@ def predict_image(img_path):
     img = image.load_img(img_path, target_size=IMAGE_SIZE)
     img_array = image.img_to_array(img)
     img_array = preprocess_input(img_array) 
-    img_array = np.expand_dims(img_array, axis=0)  # (1, 224, 224, 3)
+    img_array = np.expand_dims(img_array, axis=0)  # (1, 300, 300, 3)
 
     # Prediction
     prob = model.predict(img_array)[0][0]

@@ -6,22 +6,27 @@ import numpy as np
 from sklearn.metrics import roc_curve, auc, precision_recall_curve
 
 # ===== Paths =====
-VAL_DIR = r"C:\Users\amirf\OneDrive\Desktop\Culex_Mosquito_Classifier\data\Val"  # adjust if needed
-MODEL_PATH = r"C:\Users\amirf\OneDrive\Desktop\Culex_Mosquito_Classifier\models\culex_binary_RGB.keras"
+DATASET_DIR = r'C:\Users\amirf\Downloads\dataset'
+MODEL_PATH = r"C:\Users\amirf\OneDrive\Desktop\Culex_Mosquito_Classifier\models\culex_binary_RGB_V4.keras"
 
 # ===== Data generator (MUST MATCH TRAINING) =====
 from tensorflow.keras.applications.efficientnet import preprocess_input
 
 val_datagen = ImageDataGenerator(
-    preprocessing_function=preprocess_input
+    preprocessing_function=preprocess_input,
+    validation_split=0.15
+    
 )
 
 val_dataset = val_datagen.flow_from_directory(
-    VAL_DIR,
-    target_size=(224, 224),
+    DATASET_DIR,
+ #   target_size=(224, 224),
+    target_size=(300, 300),
     batch_size=32,
     class_mode='binary',
-    shuffle=False
+    shuffle=False,
+    subset='validation',
+    seed=42
 )
 
 # ===== Load model =====
