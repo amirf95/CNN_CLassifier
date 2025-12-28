@@ -1,0 +1,51 @@
+.history-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fa;
+}
+
+.history-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.history-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.history-card:hover {
+  transform: translateY(-5px);
+}
+
+.history-card.culex {
+  border-left: 6px solid #b42318;
+}
+
+.history-card.non_culex {
+  border-left: 6px solid #1e7f4f;
+}
+
+.history-card.uncertain {
+  border-left: 6px solid #b46900;
+}
+
+.history-card .date {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
+.history-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}

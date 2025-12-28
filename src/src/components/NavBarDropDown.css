@@ -1,0 +1,57 @@
+/* Container for positioning */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown menu */
+.dropdown-content {
+  position: absolute;
+  right: 0;
+  margin-top: 35px;
+  background: #000; /* to change background color */
+  min-width: 160px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px #ffc800;
+  border-radius: 2px #ffc800;
+  z-index: 1000;
+  display: none;
+  padding: 0.5rem 0;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+/* Dropdown items */
+.dropdown-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li a,
+.dropdown-content li button {
+  display: block;
+  padding: 8px 16px;
+  color: white; /* Text color */
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content li:hover {
+  background: #ffc800; /* Hover effect */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+}

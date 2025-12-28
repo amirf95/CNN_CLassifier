@@ -58,10 +58,12 @@ class_weight = {
 train_datagen = ImageDataGenerator(
     preprocessing_function=preprocess_input,
     # Data augmentation
-    rotation_range=10,
+    rotation_range=25,
     width_shift_range=0.05,
     height_shift_range=0.05,
-    zoom_range=0.1,
+    zoom_range=0.3,
+    brightness_range=(0.6, 1.4),
+    shear_range=0.15,
     horizontal_flip=True,
     # 15% for validation
     validation_split=0.15 
@@ -89,7 +91,7 @@ val_dataset = val_datagen.flow_from_directory(
     #target_size=(224,224),
     target_size=(300,300),#for B3
     color_mode='rgb',
-    batch_size=16,
+    batch_size=8,
     class_mode='binary',
     subset='validation',
     shuffle=False,
@@ -141,7 +143,7 @@ model.compile(
 # Continue training with fine-tuning
 history_2=model.fit(
     train_dataset,  
-    epochs=3,#number of epochs
+    epochs=8,#number of epochs
     validation_data=val_dataset,
     callbacks=[early_stop, checkpoint],
     class_weight=class_weight

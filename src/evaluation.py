@@ -116,3 +116,40 @@ plt.ylabel("Accuracy")
 plt.title("Accuracy vs Decision Threshold")
 plt.grid()
 plt.show()
+
+import random
+import matplotlib.image as mpimg
+
+# Get correct class name mapping
+class_indices = val_dataset.class_indices
+class_names = {v: k for k, v in class_indices.items()}
+
+# File paths
+file_paths = val_dataset.filepaths
+
+# Select random samples
+num_samples = 6
+indices = random.sample(range(len(file_paths)), num_samples)
+
+plt.figure(figsize=(12, 8))
+
+for i, idx in enumerate(indices):
+    img = mpimg.imread(file_paths[idx])
+
+    true_label = class_names[int(y_true[idx])]
+    pred_label = class_names[int(y_pred[idx])]
+    confidence = y_pred_probs[idx][0]
+
+    plt.subplot(2, 3, i + 1)
+    plt.imshow(img)
+    plt.axis('off')
+    plt.title(
+        f"True: {true_label}\n"
+        f"Pred: {pred_label}\n"
+        f"Conf: {confidence:.2f}",
+        fontsize=10
+    )
+
+plt.suptitle("Sample Predictions (Validation Set)", fontsize=14)
+plt.tight_layout()
+plt.show()
