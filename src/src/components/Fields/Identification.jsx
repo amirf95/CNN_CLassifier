@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import  {useState}  from "react";
 import Swal from "sweetalert2";
 import "./Identification.css";
-import * as THREE from "three";
-import CELLS from "vanta/dist/vanta.cells.min";
-
+import VantaBackground from "./VantaBackgound";
+import p5 from "p5";
+window.p5 = p5;
 function Identification() {
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState(null);
@@ -11,33 +11,8 @@ function Identification() {
     const [loading, setLoading] = useState(false);
     const [dragging, setDragging] = useState(false);
 
-    const vantaRef = useRef(null);
-    const vantaEffect = useRef(null);
-    useEffect(() => {
-        if (!vantaEffect.current) {
-            vantaEffect.current = CELLS({
-                el: vantaRef.current,
-                THREE,
-                forceAnimate: true,
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                scale: 1.0,
-                color1: 0x191c1c,
-                color2: 0xa6a659,
-                backgroundColor: 0xffffff,
-                
-            });
-        }
 
-        return () => {
-            if (vantaEffect.current) {
-                vantaEffect.current.destroy();
-                vantaEffect.current = null;
-            }
-        };
-    }, []);
-
+    
     const handleFile = (file) => {
         if (!file || !file.type.startsWith("image/")) {
             Swal.fire("Invalid file", "Please upload an image file", "error");
@@ -117,7 +92,7 @@ const handleSave = async () => {
         window.location.href = "/";
     };
     return (
-        <div className="page" ref={vantaRef}>
+        <div className="page" >
             <div className={`card ${glowClass}`}>
                 <h1>Culex Detection</h1>
                 <p className="subtitle">AI-powered mosquito classifier</p>
@@ -187,6 +162,7 @@ const handleSave = async () => {
                     </button>
                 </div>
             </div>
+            
         </div>
     );
 }

@@ -15,7 +15,7 @@ function Header() {
                 <div className="masthead-heading text-uppercase">
                     Welcome 
                 </div>
-                <a className="btn btn-primary btn-xl text-uppercase" href="#services">
+                <a className="btn btn-primary btn-xl text-uppercase" href="/CulexInfo">
                     Tell Me More
                 </a>
             </div>

@@ -21,11 +21,11 @@ function Team() {
                     </div>
                     <div className="col-lg-4">
                         <div className="team-member">
-                            <img className="mx-auto rounded-circle" src="/src/assets/img/team/66078848_1114392442077683_7684471064126029824_n.jpg" alt="photo bekir" />
-                                <h4>Precious</h4>
+                            <img className="mx-auto rounded-circle" src="/src/assets/img/team/Unconfirmed 97318.jpg" alt="photo PRECIOUS" />
+                                <h4>Precious Thom</h4>
                             <p className="text-muted">Software engineer</p>
-                            <a className="btn btn-dark btn-social mx-2" href="https://www.facebook.com/bekir.rassil" target="_blank" aria-label="Bekir Rassil Facebook Profile"><i className="fab fa-facebook-f"></i></a>
-                            <a className="btn btn-dark btn-social mx-2" href="" aria-label="Bekir Rassil LinkedIn Profile" target="_blank"><i className="fab fa-linkedin-in"></i></a>
+                            <a className="btn btn-dark btn-social mx-2" href="https://www.facebook.com/bekir.rassil" target="_blank" aria-label="Precious Thom WhatsAPP"><i className="fa-brands fa-whatsapp"></i></a>
+                            <a className="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/precious-thom-b97346232/" aria-label="Precious Thom LinkedIn Profile" target="_blank"><i className="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     

@@ -3,7 +3,7 @@ canvas {
 }
 .page {
   min-height: 100vh; /* ensures the background covers full viewport */
-  background: radial-gradient(circle at top, #1e1e1e, #000);
+  background: radial-gradient(circle at top, #ccc315a3, #0f0f0f);
   display: flex;
   justify-content: center; /* horizontal center */
   align-items: flex-start; /* vertical start so scroll works naturally */
@@ -17,9 +17,8 @@ position: relative;
   padding: 30px;
   border-radius: 20px;
   backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.308);
   border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 0 40px rgba(255,255,255,0.1);
   text-align: center;
   transition: 0.4s;
 }
@@ -36,8 +35,9 @@ position: relative;
   box-shadow: 0 0 40px #ff4d4d;
 }
 
+
 .glow-warning {
-  box-shadow: 0 0 40px #ffc107;
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
 }
 
 .subtitle {
