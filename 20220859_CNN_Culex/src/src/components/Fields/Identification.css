@@ -1,0 +1,130 @@
+canvas {
+  pointer-events: none;
+}
+.page {
+  min-height: 100vh; /* ensures the background covers full viewport */
+  background: radial-gradient(circle at top, #ccc315a3, #0f0f0f);
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: flex-start; /* vertical start so scroll works naturally */
+  padding: 50px 0; /* optional spacing from top */
+  overflow: auto; /* allow scrolling if content overflows */
+}
+
+.card {
+position: relative;
+  width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.308);
+  border: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.glow-success {
+  box-shadow: 0 0 40px #00ff9d;
+}
+
+.glow-danger {
+  box-shadow: 0 0 40px #ff4d4d;
+}
+
+
+.glow-warning {
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #0c0c0c;
+}
+
+.upload-box {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px dashed #c2a652;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-box.dragging {
+  border-color: #ffc107;
+  background: rgb(252, 252, 252);
+}
+
+.upload-box input {
+  display: none;
+}
+
+.preview {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #ffc107, #cdc301);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.confidence-bar {
+  height: 10px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: #ffff ;
+  transition: width 0.8s ease;
+}
+
+.skeleton {
+  margin-top: 20px;
+}
+
+.skeleton-bar,
+.skeleton-text {
+  background: linear-gradient(90deg, #333, #555, #333);
+  animation: shimmer 1.2s infinite;
+}
+
+.skeleton-bar {
+  height: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 60%;
+  margin: auto;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px; }
+  100% { background-position: 200px; }
+}
