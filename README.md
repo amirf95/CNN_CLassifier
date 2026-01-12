@@ -1,104 +1,274 @@
-🦟 Culex Mosquito Classifier
+# **Culex Mosquito Classifier**
 
 A deep learning–based image classification system for distinguishing Culex mosquitoes from non-Culex species using RGB images.
 This project focuses on binary classification, model evaluation, and performance analysis.
 
-📌 Project Overview
+## Project Overview
 
 Mosquito species identification is an important task in public health and disease prevention.
 This project uses a Convolutional Neural Network (CNN) to classify mosquito images into:
 
-Culex
+**Culex**
 
-Non-Culex
+**Non-Culex**
 
-The model was trained on labeled RGB images and evaluated using standard classification metrics.
+The model was trained on labeled <u>RGB images</u> and evaluated using standard classification metrics.
 
-🧠 Model Performance
-🔹 Confusion Matrix
-[[251  35]
- [ 58 221]]
+ ## Model Performance : 
 
-	Predicted Non-Culex	Predicted Culex
-Actual Non-Culex	251	35
-Actual Culex	58	221
-🔹 Classification Report
-Class	Precision	Recall	F1-score	Support
-Non-Culex	0.81	0.88	0.84	286
-Culex	0.86	0.79	0.83	279
-Accuracy			0.84	565
+🔹 **Confusion Matrix**
 
-Overall Accuracy: 84%
+<img width="500" height="500" alt="B3V4_CONFUSION" src="https://github.com/user-attachments/assets/9f021d75-8b40-4cdd-b4ea-d94af23303f5" />
 
-Balanced performance across both classes
+	
 
-Slightly higher recall for Non-Culex
+🔹 **Classification Report** : 
 
-Strong precision for Culex, reducing false positives
+<img width="544" height="307" alt="image" src="https://github.com/user-attachments/assets/7bb661b9-6431-4725-8ac0-d564b0398423" />
 
-📊 Evaluation & Analysis
 
-The project includes multiple evaluation figures such as:
+**Overall Accuracy: 97%**
 
-ROC curve
+-Balanced performance across both classes
 
-Precision–Recall curve
+-Slightly higher recall for Non-Culex
 
-Prediction distribution
+-Strong precision for Culex, reducing false positives
 
-Decision threshold analysis
+## Dataset
 
-All figures are available in the Figures/ directory.
-
-📂 Project Structure
-Culex_Mosquito_Classifier/
-│
-├── src/
-│   ├── v6.py              # Model training
-│   ├── testing.py         # Inference and testing
-│   └── evaluation.py     # Metrics and plots
-│
-├── Figures/               # Evaluation plots
-│
-├── .gitignore             # Ignore dataset & large files
-└── README.md
-
-📁 Dataset
-
-The dataset consists of RGB mosquito images organized into two classes:
+The dataset consists of 5280 RGB mosquito images organized into two classes:
 
 culex
 
 non_culex
 
-⚠️ Note:
+**Note:**
 The dataset is not included in this repository due to size constraints.
 If needed, the dataset structure is documented and can be shared upon request.
 
-⚙️ Technologies Used
+**Technologies Used**
 
-Python
+-Python
 
-TensorFlow / Keras
+-TensorFlow / Keras
 
-NumPy
+-NumPy
 
-Matplotlib
+-Matplotlib
 
-Scikit-learn
+-Scikit-learn
 
-🚀 Future Improvements
+## Project Structure
 
-Data augmentation and class balancing
+20220859_CNN_Culex/
+│
+
+├── Back-END/
+
+│   ├── app.py                  # Backend application (API)
+
+│   ├── Database.py             # Database handling
+
+│   ├── predictions.db          # SQLite database
+
+│   ├── testing.py              # main functionality
+
+│   ├── Wrong_Identifier.py     # Error analysis / misclassification handling
+
+│   └── requirements.txt        # Backend dependencies
+
+│
+
+├── hard/                       # data labeled wrongly
+
+│
+
+├── public/#images & backgrounds
+
+├── src/                        # Frontend source (React + Vite)
+
+│   ├── assets/
+
+│   ├── components/             # Reusable UI components
+
+│   ├── services/               # API service calls
+
+│   ├── App.jsx					#reaxt main app
+
+│   ├── App.css					#main styles
+
+│   ├── index.css
+
+│   └── main.jsx
+
+│
+
+├── wrong_predictions_val/
+
+│   └── culex_as_non_culex/      # Misclassified validation samples
+
+│
+
+├── Figures/                    # Evaluation plots for different volumes (ROC, PR, confusion matrix)
+
+│
+
+├── v6.py                       # CNN training script
+
+├── evaluation.py               # Model evaluation & metrics
+
+├── shufler.py                  # Dataset shuffling
+
+│
+
+├── index.html                  # Frontend entry point
+
+├── package.json                # Frontend dependencies
+
+├── package-lock.json
+
+├── vite.config.js              # Vite configuration
+
+├── eslint.config.js
+
+│
+
+├── .gitignore
+
+└── README.md
+this project contains one more embeded system for clarity
+
+## Installation Requirements
+
+Make sure you have the following installed on your system:
+
+🔹**System Requirements**
+
+Python 3.10
+
+Node.js 18+ (for frontend)
+
+pip (Python package manager)
+
+npm (Node package manager)
+
+🔹 **Backend Dependencies**
+
+The backend uses **FastAPI** to serve the trained CNN model.
+
+Install all required Python libraries using:
+
+
+```python
+pip install -r Back-END/requirements.txt
+
+```
+
+Required Python packages:
+
+FastAPI – Backend API framework
+
+Uvicorn – ASGI server to run FastAPI
+
+TensorFlow – CNN model loading and inference
+
+NumPy – Image preprocessing
+
+Pillow – Image handling
+
+python-multipart – Image upload support
+
+🔹 **Frontend Dependencies**
+
+Install frontend dependencies:
+
+```bash
+npm install
+```
+
+## How to Run the Model
+1️⃣ Start the Backend (Model Inference API)
+CMD:
+
+```bash
+cd Back-END
+uvicorn app:app --reload
+```
+
+The CNN model is loaded automatically at startup
+
+API will be available at:
+
+**http://127.0.0.1:8000**
+
+
+2️⃣ Start the Frontend 
+
+
+```bash
+npm run dev
+```
+
+
+Opens the web interface for image upload and prediction
+
+3️⃣ Run Model Training (Optional)
+
+If you want to retrain the CNN:
+```bash
+python v6.py
+```
+
+Trains the model on the dataset
+
+Saves the trained model for inference
+
+4️⃣ Evaluate the Model (Optional)
+
+```bash
+python evaluation.py
+```
+
+Generates:
+
+Confusion matrix
+
+ROC curve
+
+Precision–Recall curve
+
+Results are saved in the Figures/ directory.
+
+ **Model saving location**
+  The model will be saved in the model folder
+  
+Culex_Mosquito_Classifier\20220859_CNN_Culex\models
+
+## Evaluation & Analysis
+
+The project includes multiple evaluation figures, such as:
+
+-ROC curve
+
+-Precision–Recall curve
+
+-Prediction distribution
+
+-Decision threshold analysis
+
+All figures are available in the Figures/ directory.
+
+## Future Improvements
+
+Addition of other species
 
 Threshold optimization
-
-Transfer learning (EfficientNet / ResNet)
 
 Model explainability (Grad-CAM)
 
 Deployment as a web or mobile application
 
-👤 Author
+## Author
 
-Emir Fenina
+**Emir Fenina**
